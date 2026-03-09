@@ -1,14 +1,13 @@
 function leftpad(str, len, ch) {
   str = String(str);
-
+  // str += '';
   len = len - str.length;
 
   if (len < 1) return str;
 
   if (!ch && ch !== 0) ch = ' ';
-  let i = -1;
 
-  while (++i < len) {
+  for (let i = 0; i < len; i++) {
     str = ch + str;
   }
 
