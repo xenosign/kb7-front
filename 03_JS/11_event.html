@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script>
+      window.onload = function () {
+        const test = () => {
+          alert("test");
+        };
+
+        const listenerEl = document.getElementById("listener");
+        listenerEl.addEventListener("click", test);
+      };
+    </script>
   </head>
   <body>
-    <div id="onclick" onclick="(test(), test2())">box onclick</div>
+    <div id="onclick" onclick="test()">box onclick</div>
     <div id="listener">box listener</div>
-    <script>
-      const test = () => {
-        alert("test");
-      };
-
-      const listenerEl = document.getElementById("listener");
-      listenerEl.addEventListener("click", test);
-    </script>
+    <script></script>
   </body>
 </html>

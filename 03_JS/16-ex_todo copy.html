@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .complete {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>오늘 할 일</h1>
+    <label>
+      <input id="inputTodo" type="text" />
+    </label>
+    <button id="submitTodo">할 일 추가</button>
+
+    <ul></ul>
+
+    <script>
+      const button = document.querySelector("#submitTodo");
+      button.addEventListener("click", () => {
+        const name = getTodoNameAndClearInput();
+        appendNewTodo(name);
+      });
+
+      function getTodoNameAndClearInput() {
+        // 인풋은 반복 사용되니까 최상단에 캐싱하는 편 추천 드립니다!
+        const input = document.querySelector("#inputTodo");
+        const name = input.value.trim();
+        input.value = "";
+        return name.trim();
+      }
+
+      function appendNewTodo(name) {
+        if (!validateName(name)) {
+          return;
+        }
+        const ul = document.querySelector("ul");
+        const li = makeTodoElement(name);
+        ul.appendChild(li);
+      }
+
+      function validateName(name) {
+        return name !== "";
+      }
+
+      function makeTodoElement(name) {
+        const li = document.createElement("li");
+
+        const span = document.createElement("span");
+        span.textContent = name;
+        span.addEventListener("click", (event) => {
+          completeTodo(event.target);
+        });
+
+        const button = document.createElement("button");
+        button.textContent = "삭제";
+        button.addEventListener("click", (event) => {
+          removeTodo(event.target);
+        });
+
+        li.appendChild(span);
+        li.appendChild(button);
+        return li;
+      }
+
+      function completeTodo(span) {
+        span.classList.toggle("complete");
+      }
+
+      function removeTodo(button) {
+        // li 태그를 명확하게 찾았으므로 li.remove() 본인을 삭제하는 편이 더 깔끔한 방법으로 생각됩니다!
+        const li = button.parentElement;
+        const ul = li.parentElement;
+        ul.removeChild(li);
+      }
+    </script>
+  </body>
+</html>
