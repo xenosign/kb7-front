@@ -1,10 +1,10 @@
-const x = "global";
+const x = 'global';
 
 function outer() {
-  const x = "outer";
+  const x = 'outer';
 
   function inner() {
-    const x = "inner";
+    const x = 'inner';
     console.log(x);
   }
 
