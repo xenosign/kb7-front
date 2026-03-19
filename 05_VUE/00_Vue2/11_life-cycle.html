@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Tetz's favorite food list</h1>
+      <button @click="fetchFoods">데이터 받아오기</button>
+      <ul>
+        <li v-for="(food, index) in foods" v-bind:key="index">
+          {{ food.food }}
+        </li>
+      </ul>
+    </div>
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        name: 'App',
+        data() {
+          return {
+            foods: [],
+            endPoint:
+              'https://port-0-kb7-back-node-mmc3pmla14c7b8b4.sel3.cloudtype.app',
+          };
+        },
+        methods: {
+          async fetchFoods() {
+            try {
+              const response = await fetch(`${this.endPoint}/food/all`);
+              this.foods = await response.json();
+            } catch (e) {
+              console.error(e);
+            }
+          },
+          async sendUserData() {
+            try {
+              const response = await fetch(`${this.endPoint}/food/send`);
+              console.log('data 전송 완료');
+            } catch (e) {
+              console.error(e);
+            }
+          },
+        },
+        created() {
+          this.fetchFoods();
+        },
+        unmounted() {
+          this.sendUserData();
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
