@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>우리반 사람들</h1>
+      <ul>
+        <li v-for="(student, index) in classArr" v-bind:key="index">
+          id : {{ student.id }} / 이름 : {{ student.name }}
+        </li>
+      </ul>
+    </div>
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        name: 'App',
+        data() {
+          return {
+            classArr: [
+              { id: 1, name: '강채연' },
+              { id: 2, name: '강태규' },
+              { id: 3, name: '권유현' },
+              { id: 4, name: '김건우' },
+              { id: 5, name: '김기선' },
+              { id: 6, name: '김민철' },
+              { id: 7, name: '김수현' },
+              { id: 8, name: '김현태' },
+              { id: 9, name: '송준수' },
+              { id: 10, name: '송태권' },
+              { id: 11, name: '양승환' },
+              { id: 12, name: '오진호' },
+              { id: 13, name: '이대주' },
+              { id: 14, name: '이민호' },
+              { id: 15, name: '이아영' },
+              { id: 16, name: '이지민' },
+              { id: 17, name: '이지은' },
+              { id: 18, name: '이채연' },
+              { id: 19, name: '장지연' },
+              { id: 20, name: '최규진' },
+              { id: 21, name: '최보윤' },
+              { id: 22, name: '홍상우' },
+              { id: 23, name: '황지원' },
+            ],
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
