@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Tetz's favorite foods with Computed</h1>
+      <label for="category">카테고리 선택 : </label>
+      <select id="category" v-model="selectedCategory">
+        <option value="all">전체</option>
+        <option value="korean">한식</option>
+        <option value="japanese">일식</option>
+        <option value="chinese">중식</option>
+      </select>
+
+      <ul>
+        <li v-for="(food, index) in foods" :key="index">{{ food.food }}</li>
+      </ul>
+    </div>
+    <script>
+      Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            foods: [],
+            selectedCategory: 'all',
+            baseUrl:
+              'https://port-0-kb7-back-node-mmc3pmla14c7b8b4.sel3.cloudtype.app',
+          };
+        },
+        methods: {
+          async fetchFoodsByCategory(category) {
+            try {
+              const response = await fetch(`${this.baseUrl}/food/${category}`);
+              this.foods = await response.json();
+            } catch (e) {
+              console.error(e);
+            }
+          },
+        },
+        watch: {
+          selectedCategory(changeCategory) {
+            this.fetchFoodsByCategory(changeCategory);
+          },
+        },
+        created() {
+          this.fetchFoodsByCategory(this.selectedCategory);
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
