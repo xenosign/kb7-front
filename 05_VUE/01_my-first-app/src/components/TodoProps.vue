@@ -1,9 +1,11 @@
 <script setup>
-const message = 'Hello, Vue World!';
+const props = defineProps(['todo']);
 </script>
 
 <template>
-  <h2>{{ message }}</h2>
+  <div>
+    <h2>{{ todo }}</h2>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

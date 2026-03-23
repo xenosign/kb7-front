@@ -1,12 +1,8 @@
 <script setup>
-import VBind from './components/VBind.vue';
-import VText from './components/VText.vue';
+import CheckList from './components/CheckList.vue';
+import TodoProps from './components/TodoProps.vue';
 </script>
 
-<template>
-  <h1>기초 작업 완료</h1>
-  <VText />
-  <VBind />
-</template>
+<template><01_Todo /></template>
 
 <style scoped></style>
