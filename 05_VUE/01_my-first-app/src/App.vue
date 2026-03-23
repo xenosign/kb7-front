@@ -1,8 +1,11 @@
 <script setup>
-import CheckList from './components/CheckList.vue';
-import TodoProps from './components/TodoProps.vue';
+import TodoPage from './components/01_component-props/TodoPage.vue';
+import PropsListPage from './components/01_component-props/PropsListPage.vue';
+import PageEmit from './components/02_emit/PageEmit.vue';
 </script>
 
-<template><01_Todo /></template>
+<template>
+  <PropsListPage />
+</template>
 
 <style scoped></style>
