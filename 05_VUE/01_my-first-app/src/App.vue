@@ -5,10 +5,11 @@ import EmitParent from './components/02_emit/EmitParent.vue';
 import SlotParent from './components/03_slot/SlotParent.vue';
 import NamedSlotParent from './components/03_slot/NamedSlotParent.vue';
 import ColorEmitParent from './components/02_emit/ColorEmitParent.vue';
+import TodoList from './components/00_todo-list/TodoList.vue';
 </script>
 
 <template>
-  <ColorEmitParent />
+  <TodoList />
 </template>
 
 <style scoped></style>
