@@ -5,7 +5,7 @@
 
 <script>
 export default {
-  name: 'SendNameComponent',
+  name: 'EmitChild',
   data() {
     return {
       name: '',

@@ -24,7 +24,7 @@ const classes = [
   { id: 23, name: '황지원' },
 ];
 
-// 1. filter : 조건에 맞는 배열을 만들 때, 원본 배열 변화 없음
+// 1. filter : 조건에 맞는 배열을 새롭게 만들어서 리턴하는 함수, 원본 배열 변화 없음
 const who = classes.filter(function (student, index) {
   console.log(student, index);
   return student.id % 2 === 1;
@@ -36,7 +36,9 @@ const kimFamily = classes.filter((student) => student.name.startsWith('김'));
 
 console.log(kimFamily);
 
-// 2. map : 각각의 배열 값에 특정 작업을 수행할 때 or 데이터 타입을 변환하여 리턴하는 함수, 원본 배열 변화 없음
+// 2. map : 각각의 배열 값에 특정 작업을 수행하거나,
+// 데이터 타입을 변환하여 새로운 배열을 리턴하는 함수,
+// 원본 배열 변화 없음
 const addConditionClasses = classes.map(function (student, index) {
   return { ...student, condition: 'good' };
 });
@@ -83,6 +85,15 @@ const howManyStudentIncludeTae = classes.reduce(function (acc, student) {
 }, 0);
 
 console.log(howManyStudentIncludeTae);
+
+let howManyStudentIncludeTae2 = 0;
+classes.forEach((student) => {
+  if (student.name.includes('태')) {
+    howManyStudentIncludeTae2 += 1;
+  }
+});
+
+console.log(howManyStudentIncludeTae2);
 
 const statsByFamilyName = classes.reduce((acc, student) => {
   const familyName = student.name[0];

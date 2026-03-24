@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1>너의 이름은 {{ name }}</h1>
-    <SendNameComponent @nameChanged="nameChangeHandler" />
+    <EmitChild @nameChanged="nameChangeHandler" />
   </div>
 </template>
 
 <script>
-import SendNameComponent from './SendNameComponent.vue';
+import EmitChild from './EmitChild.vue';
 
 export default {
   name: 'PageEmit',
@@ -16,7 +16,7 @@ export default {
     };
   },
   components: {
-    SendNameComponent,
+    EmitChild,
   },
   methods: {
     nameChangeHandler(e) {
