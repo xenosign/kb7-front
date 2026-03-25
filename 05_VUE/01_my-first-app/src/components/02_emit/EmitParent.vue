@@ -19,8 +19,8 @@ export default {
     EmitChild,
   },
   methods: {
-    nameChangeHandler(e) {
-      this.name = e.name;
+    nameChangeHandler(name) {
+      this.name = name;
     },
   },
 };
