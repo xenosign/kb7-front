@@ -7,10 +7,11 @@ import TodoList from './components/00_todo-list/TodoList.vue';
 import ModalParent from './components/03_slot-teleport/ModalParent.vue';
 import TeleportParent from './components/03_slot-teleport/TeleportParent.vue';
 import ProvideParent from './components/04_provide/ProvideParent.vue';
+import VmodelModalParent from './components/03_slot-teleport/VmodelModalParent.vue';
 </script>
 
 <template>
-  <ProvideParent />
+  <VmodelModalParent />
 </template>
 
 <style scoped></style>

@@ -13,18 +13,13 @@
 <script>
 export default {
   name: 'ModalChild',
-  props: {
-    visible: {
-      type: Boolean,
-      required: true,
-    },
-  },
+  props: ['visible'],
+  emits: ['close'],
   methods: {
     sendClose() {
       this.$emit('close');
     },
   },
-  emits: ['close'],
 };
 </script>
 <style scoped>

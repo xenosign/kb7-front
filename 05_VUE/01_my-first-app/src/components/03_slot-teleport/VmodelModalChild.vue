@@ -2,7 +2,9 @@
   <teleport to="body">
     <div class="modal-overlay" v-if="visible">
       <div class="modal">
-        <button class="close-button" @click="sendClose()">X</button>
+        <button class="close-button" @click="$emit('update:visible', false)">
+          X
+        </button>
         <div class="modal-content">
           <slot></slot>
         </div>
@@ -13,20 +15,11 @@
 <script>
 export default {
   name: 'Modal',
-  props: {
-    visible: {
-      type: Boolean,
-      required: true,
-    },
-  },
+  props: ['visible'],
   emits: ['update:visible'],
-  methods: {
-    sendClose() {
-      this.$emit('update:visible', false);
-    },
-  },
 };
 </script>
+
 <style scoped>
 .modal-overlay {
   position: fixed;

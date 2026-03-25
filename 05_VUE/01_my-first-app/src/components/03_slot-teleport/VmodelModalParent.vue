@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <button @click="showModal">모달 열기</button>
+    <button @click="isModalVisible = true">모달 열기</button>
     <VmodelModalChild v-model:visible="isModalVisible">
       <h2>이 모달을 당장 닫지 않으면!?</h2>
       <p>씨끄러울 겁니다!</p>
@@ -21,14 +21,6 @@ export default {
     return {
       isModalVisible: false,
     };
-  },
-  methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    hideModal() {
-      this.isModalVisible = false;
-    },
   },
 };
 </script>
