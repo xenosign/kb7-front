@@ -1,6 +1,16 @@
 <template lang="">
   <div>
     <button @click="showModal">모달 열기</button>
+    <div class="content">
+      <h1>원래 부모 요소의 컨텐츠 입니다</h1>
+      <h1>원래 부모 요소의 컨텐츠 입니다</h1>
+      <h1>원래 부모 요소의 컨텐츠 입니다</h1>
+      <h1>원래 부모 요소의 컨텐츠 입니다</h1>
+      <h1>원래 부모 요소의 컨텐츠 입니다</h1>
+      <h1>원래 부모 요소의 컨텐츠 입니다</h1>
+      <h1>원래 부모 요소의 컨텐츠 입니다</h1>
+      <h1>원래 부모 요소의 컨텐츠 입니다</h1>
+    </div>
     <ModalChild :visible="isModalVisible" @close="hideModal">
       <h2>이 모달을 당장 닫지 않으면!?</h2>
       <p>씨끄러울 겁니다!</p>
@@ -32,4 +42,9 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style scoped>
+  .content {
+    height: 900px;
+    background-color: red;
+  }
+</style>

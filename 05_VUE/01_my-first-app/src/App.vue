@@ -11,7 +11,7 @@ import VmodelModalParent from './components/03_slot-teleport/VmodelModalParent.v
 </script>
 
 <template>
-  <VmodelModalParent />
+  <ModalParent />
 </template>
 
 <style scoped></style>
