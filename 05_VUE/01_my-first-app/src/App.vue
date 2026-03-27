@@ -9,11 +9,16 @@ import TeleportParent from './components/03_slot-teleport/TeleportParent.vue';
 import ProvideParent from './components/04_provide/ProvideParent.vue';
 import VmodelModalParent from './components/03_slot-teleport/VmodelModalParent.vue';
 import RefReactive from './components/05_composition-api/RefReactive.vue';
-import Computed from './components/05_composition-api/Computed.vue';
+import MethodComputed from './components/05_composition-api/MethodComputed.vue';
+import Watch from './components/05_composition-api/Watch.vue';
+import Vue3PropsParent from './components/05_composition-api/Vue3PropsParent.vue';
+import Vue3EmitParent from './components/05_composition-api/Vue3EmitParent.vue';
+import LifeCylce from './components/05_composition-api/LifeCylce.vue';
+import Vue3TodoList from './components/00_todo-list/Vue3TodoList.vue';
 </script>
 
 <template>
-  <Computed />
+  <Vue3TodoList />
 </template>
 
 <style scoped></style>
