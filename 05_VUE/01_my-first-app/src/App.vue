@@ -8,10 +8,12 @@ import ModalParent from './components/03_slot-teleport/ModalParent.vue';
 import TeleportParent from './components/03_slot-teleport/TeleportParent.vue';
 import ProvideParent from './components/04_provide/ProvideParent.vue';
 import VmodelModalParent from './components/03_slot-teleport/VmodelModalParent.vue';
+import RefReactive from './components/05_composition-api/RefReactive.vue';
+import Computed from './components/05_composition-api/Computed.vue';
 </script>
 
 <template>
-  <ModalParent />
+  <Computed />
 </template>
 
 <style scoped></style>
