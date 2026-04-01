@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
+import RouterHeader from './components/RouterHeader.vue';
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import { RouterLink, RouterView } from 'vue-router';
       /
       <RouterLink to="/watch/exciting">WatchExciting</RouterLink>
     </nav>
+    <RouterHeader />
   </header>
 
   <RouterView />
