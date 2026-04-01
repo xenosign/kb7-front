@@ -1,0 +1,46 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "todo": "첫 과제 제출 하기",
+      "desc": "이거 어떻게 하는거죠!?",
+      "done": false
+    },
+    {
+      "id": "2",
+      "todo": "페이커 숭배하기",
+      "desc": "여러분 숭배할 시간입니다. 진짜 이번 우승 까지는 안바랍니다! ㅎㅎㅎㅎ",
+      "done": false
+    },
+    {
+      "id": "3",
+      "todo": "Vue 학습",
+      "desc": "Vue 부수기",
+      "done": false
+    },
+    {
+      "id": "4",
+      "todo": "코테 정복",
+      "desc": "취업용 코테 까지만 퐈이팅!!",
+      "done": false
+    },
+    {
+      "query": "query GetRatesAndTodos($currencyCodes: [String!]!) {\r\n  specificExchangeRates(currencyCodes: $currencyCodes) {\r\n    rates {\r\n      currency\r\n      rate\r\n    }\r\n    executionTimeMs\r\n  },\r\n  getAllTodos {\r\n    id\r\n    task\r\n    completed\r\n    createdAt\r\n  }\r\n}",
+      "variables": {
+        "currencyCodes": [
+          "USD",
+          "JPY",
+          "EUR"
+        ]
+      },
+      "id": "c0inAc7GioY"
+    }
+  ],
+  "users": [
+    {
+      "id": "12",
+      "password": "12"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
