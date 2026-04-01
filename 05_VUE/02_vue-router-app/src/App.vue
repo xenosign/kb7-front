@@ -17,6 +17,10 @@ import RouterHeader from './components/RouterHeader.vue';
       <RouterLink to="/watch/happy">WatchHappy</RouterLink>
       /
       <RouterLink to="/watch/exciting">WatchExciting</RouterLink>
+      /
+      <RouterLink to="/cors">Cors</RouterLink>
+      /
+      <RouterLink to="/ex-cors">Ex-Cors</RouterLink>
     </nav>
     <RouterHeader />
   </header>
