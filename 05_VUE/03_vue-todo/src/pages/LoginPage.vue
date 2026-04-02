@@ -1,15 +1,3 @@
-<template>
-  <div>
-    <h1>LOGIN PAGE</h1>
-    아이디 : <input type="text" v-model.trim="userId" />
-    <br />
-    패스워드 : <input type="text" v-model.trim="userPassword" />
-    <br />
-    <button v-on:click="login">로그인</button> /
-    <button v-on:click="logout">로그아웃</button>
-  </div>
-</template>
-
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
@@ -54,3 +42,15 @@ function logout() {
   return alert('로그 아웃 완료');
 }
 </script>
+
+<template>
+  <div>
+    <h1>LOGIN PAGE</h1>
+    아이디 : <input type="text" v-model.trim="userId" />
+    <br />
+    패스워드 : <input type="text" v-model.trim="userPassword" />
+    <br />
+    <button v-on:click="login">로그인</button> /
+    <button v-on:click="logout">로그아웃</button>
+  </div>
+</template>

@@ -16,10 +16,54 @@ const router = createRouter({
     {
       path: '/todo',
       name: 'todo',
-      component: () => import('@/pages/TodoPage.vue'),
+      component: () => import('@/pages/todo/TodoListPage.vue'),
       meta: { requiresAuth: true },
+    },
+    {
+      path: '/todo/detail/:id',
+      name: 'todo/detail',
+      component: () => import('@/pages/todo/TodoDetailPage.vue'),
+      meta: { requiresAuth: true },
+      props: true,
+    },
+    {
+      path: '/todo/write',
+      name: 'todo/write',
+      component: () => import('@/pages/todo/TodoWritePage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/todo/edit/:id',
+      name: 'todo/edit',
+      component: () => import('@/pages/todo/TodoEditPage.vue'),
+      meta: { requiresAuth: true },
+      props: true,
     },
   ],
 });
+
+router.beforeEach(function (to, from) {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (localStorage.getItem('auth') !== 'true') {
+      alert('로그인이 필요 합니다');
+      return { name: 'login' };
+    }
+  }
+
+  return true;
+});
+
+// router.beforeEach((to, from) => {
+//   if (to.matched.some((record) => record.meta.requiresAuth)) {
+//     if (localStorage.getItem('auth') === 'true') {
+//       return true;
+//     } else {
+//       alert('로그인이 필요합니다');
+//       return { name: 'login' };
+//     }
+//   } else {
+//     return true;
+//   }
+// });
 
 export default router;

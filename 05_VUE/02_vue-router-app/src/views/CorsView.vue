@@ -1,6 +1,10 @@
 <script setup>
+import axios from 'axios';
+
 const CORS_URL =
   'https://port-0-kb7-back-node-mmc3pmla14c7b8b4.sel3.cloudtype.app';
+
+const PROXY_URL = '/api';
 
 async function checkCorsOn() {
   try {
@@ -15,9 +19,9 @@ async function checkCorsOn() {
 
 async function checkCorsOff() {
   try {
-    const corsUrl = '/api' + '/cors/off';
-    const corsRes = await fetch(corsUrl);
-    const corsData = await corsRes.json();
+    const corsUrl = PROXY_URL + '/cors/off';
+    const corsRes = await axios.get(corsUrl);
+    const corsData = corsRes.data;
     console.log('CORS 응답 결과 : ', corsData);
   } catch (e) {
     console.log('CORS 응답 통신 ERR 발생 : ', e);

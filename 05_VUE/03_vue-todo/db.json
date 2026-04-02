@@ -13,27 +13,22 @@
       "done": false
     },
     {
-      "id": "3",
-      "todo": "Vue 학습",
+      "todo": "Vue 학습11111",
       "desc": "Vue 부수기",
-      "done": false
+      "done": false,
+      "id": "3"
     },
     {
-      "id": "4",
-      "todo": "코테 정복",
-      "desc": "취업용 코테 까지만 퐈이팅!!",
-      "done": false
+      "todo": "12321dasd1231",
+      "desc": "33",
+      "done": false,
+      "id": "UwgHqdRc7oc"
     },
     {
-      "query": "query GetRatesAndTodos($currencyCodes: [String!]!) {\r\n  specificExchangeRates(currencyCodes: $currencyCodes) {\r\n    rates {\r\n      currency\r\n      rate\r\n    }\r\n    executionTimeMs\r\n  },\r\n  getAllTodos {\r\n    id\r\n    task\r\n    completed\r\n    createdAt\r\n  }\r\n}",
-      "variables": {
-        "currencyCodes": [
-          "USD",
-          "JPY",
-          "EUR"
-        ]
-      },
-      "id": "c0inAc7GioY"
+      "todo": "44",
+      "desc": "44",
+      "done": false,
+      "id": "li_FZoz1fgo"
     }
   ],
   "users": [
