@@ -1,23 +1,3 @@
-<template>
-  <main>
-    <h1>TODO PAGE</h1>
-    <h2 v-if="isFetching">데이터 로딩 중</h2>
-    <h2 v-else-if="isError">데이터 통신 중 에러 발생</h2>
-    <div v-else>
-      <ul>
-        <li v-for="(item, index) in todoArr">
-          {{ item.id }} /
-          <RouterLink v-bind:to="`/todo/detail/${item.id}`">{{
-            item.todo
-          }}</RouterLink>
-          / {{ item.done }}
-        </li>
-      </ul>
-      <button @click="router.push({ name: 'todo/write' })">todo 작성</button>
-    </div>
-  </main>
-</template>
-
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
@@ -51,3 +31,23 @@ async function fetchTodo() {
 
 fetchTodo();
 </script>
+
+<template>
+  <main>
+    <h1>TODO PAGE</h1>
+    <h2 v-if="isFetching">데이터 로딩 중</h2>
+    <h2 v-else-if="isError">데이터 통신 중 에러 발생</h2>
+    <div v-else>
+      <ul>
+        <li v-for="(item, index) in todoArr">
+          {{ item.id }} /
+          <RouterLink v-bind:to="`/todo/detail/${item.id}`">{{
+            item.todo
+          }}</RouterLink>
+          / {{ item.done }}
+        </li>
+      </ul>
+      <button @click="router.push({ name: 'todo/write' })">todo 작성</button>
+    </div>
+  </main>
+</template>

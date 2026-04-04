@@ -1,20 +1,3 @@
-<template>
-  <div>
-    <h1>TODO EDIT</h1>
-    <div>
-      <h2>todo : <input type="text" v-model.trim="editedTodo" /></h2>
-      <h2>desc : <input type="text" v-model.trim="editedDesc" /></h2>
-      <h2>done : <input type="checkbox" v-model.trim="editedDone" /></h2>
-      <button v-on:click="editTodo(todo.id)">수정</button>
-      <button
-        @click="router.push({ name: 'todo/detail', params: { id: todo.id } })"
-      >
-        취소
-      </button>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
@@ -74,3 +57,20 @@ fetchTodo();
 </script>
 
 <style lang="scss" scoped></style>
+
+<template>
+  <div>
+    <h1>TODO EDIT</h1>
+    <div>
+      <h2>todo : <input type="text" v-model.trim="editedTodo" /></h2>
+      <h2>desc : <input type="text" v-model.trim="editedDesc" /></h2>
+      <h2>done : <input type="checkbox" v-model.trim="editedDone" /></h2>
+      <button v-on:click="editTodo(todo.id)">수정</button>
+      <button
+        @click="router.push({ name: 'todo/detail', params: { id: todo.id } })"
+      >
+        취소
+      </button>
+    </div>
+  </div>
+</template>
