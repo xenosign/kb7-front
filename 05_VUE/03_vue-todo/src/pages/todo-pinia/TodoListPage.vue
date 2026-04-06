@@ -1,3 +1,32 @@
+<script setup>
+import { useTodoStore } from '@/stores/todo';
+import { storeToRefs } from 'pinia';
+import { ref } from 'vue';
+import { RouterLink, useRouter } from 'vue-router';
+
+const router = useRouter();
+const todoStore = useTodoStore();
+const { todoArr, isFetching, isError } = storeToRefs(todoStore);
+const { fetchTodoList } = todoStore;
+
+async function initTodoList() {
+  try {
+    isFetching.value = true;
+    isError.value = false;
+
+    await fetchTodoList();
+
+    isFetching.value = false;
+  } catch (e) {
+    isError.value = true;
+    alert('TODO DATA FETCH 통신 ERR 발생');
+    console.log(e);
+  }
+}
+
+initTodoList();
+</script>
+
 <template>
   <main>
     <h1>TODO PAGE</h1>
@@ -17,35 +46,3 @@
     </div>
   </main>
 </template>
-
-<script setup>
-import { useTodoStore } from '@/stores/todo';
-import { storeToRefs } from 'pinia';
-import { ref } from 'vue';
-import { RouterLink, useRouter } from 'vue-router';
-
-const router = useRouter();
-const todoStore = useTodoStore();
-const { todoArr } = storeToRefs(todoStore);
-const { fetchTodoList } = todoStore;
-
-let isFetching = ref(true);
-let isError = ref(false);
-
-async function initTodoList() {
-  try {
-    isFetching.value = true;
-    isError.value = false;
-
-    fetchTodoList();
-
-    isFetching.value = false;
-  } catch (e) {
-    isError.value = true;
-    alert('TODO DATA FETCH 통신 ERR 발생');
-    console.log(e);
-  }
-}
-
-initTodoList();
-</script>

@@ -12,7 +12,7 @@ const { fetchTodo, editTodo } = todoStore;
 
 const editedTodo = ref({});
 
-async function initTodoData() {
+async function initTodo() {
   try {
     editedTodo.value = await fetchTodo(id);
 
@@ -36,7 +36,7 @@ async function onEditTodo() {
   }
 }
 
-initTodoData();
+initTodo();
 </script>
 
 <style lang="scss" scoped></style>
