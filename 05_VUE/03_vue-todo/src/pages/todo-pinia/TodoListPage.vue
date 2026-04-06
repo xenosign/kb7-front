@@ -32,7 +32,7 @@ const { fetchTodoList } = todoStore;
 let isFetching = ref(true);
 let isError = ref(false);
 
-async function fetchTodo() {
+async function initTodoList() {
   try {
     isFetching.value = true;
     isError.value = false;
@@ -47,5 +47,5 @@ async function fetchTodo() {
   }
 }
 
-fetchTodo();
+initTodoList();
 </script>

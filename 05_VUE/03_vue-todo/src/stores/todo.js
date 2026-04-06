@@ -14,18 +14,6 @@ export const useTodoStore = defineStore('todo', () => {
 
       todoArr.value = fetchTodoListRes.data;
       return fetchTodoListRes.data;
-      return fetchTodoListRes.data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const fetchTodo = async (id) => {
-    try {
-      const fetchTodoUrl = BASE_URL + `/todos/${id}`;
-      const fetchTodoRes = await axios.get(fetchTodoUrl);
-
-      return fetchTodoRes.data;
     } catch (error) {
       console.error(error);
     }
@@ -37,6 +25,17 @@ export const useTodoStore = defineStore('todo', () => {
       const addTodoRes = await axios.post(addTodoUrl, newTodo);
 
       return addTodoRes.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const fetchTodo = async (id) => {
+    try {
+      const fetchTodoUrl = BASE_URL + `/todos/${id}`;
+      const fetchTodoRes = await axios.get(fetchTodoUrl);
+
+      return fetchTodoRes.data;
     } catch (error) {
       console.error(error);
     }
