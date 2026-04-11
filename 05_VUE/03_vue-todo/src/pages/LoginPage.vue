@@ -5,7 +5,8 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const BASE_URL = '/api';
+const BASE_URL =
+  'https://port-0-kb7-json-server-cloudtype-mnpolbtv3c3093c5.sel3.cloudtype.app';
 const userId = ref('');
 const userPassword = ref('');
 

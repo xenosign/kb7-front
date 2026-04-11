@@ -2,7 +2,7 @@ import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import axios from 'axios';
 
-const BASE_URL = '/api';
+const BASE_URL = 'https://json-server-render2-production.up.railway.app';
 
 export const useTodoStore = defineStore('todo', () => {
   const todoArr = ref([]);
