@@ -1,3 +1,42 @@
+<script setup>
+import { useTodoStore } from '@/stores/todo';
+import { ref } from 'vue';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
+
+const router = useRouter();
+const curRoute = useRoute();
+const id = curRoute.params.id;
+
+const todoStore = useTodoStore();
+const { fetchTodo, deleteTodo } = todoStore;
+
+const todo = ref({});
+
+async function initTodo() {
+  try {
+    todo.value = await fetchTodo(id);
+    console.log('TODO DETAIL 데이터 : ', todo.value);
+  } catch (e) {
+    alert('TODO DETAIL 통신 ERR 발생');
+    console.error(e);
+  }
+}
+
+async function deleteTodoHandler(id) {
+  try {
+    const deleteRes = await deleteTodo(id);
+    console.log('삭제 통신 결과 : ', deleteRes);
+
+    router.push({ name: 'todo' });
+  } catch (e) {
+    alert('TODO 삭제 ERR 발생');
+    console.log(e);
+  }
+}
+
+initTodo();
+</script>
+
 <template>
   <div>
     <h1>TODO DETAIL</h1>
@@ -13,48 +52,9 @@
       >
         수정
       </button>
-      <button v-on:click="onDeleteTodo(todo.id)">삭제</button>
+      <button v-on:click="deleteTodoHandler(todo.id)">삭제</button>
     </div>
   </div>
 </template>
-
-<script setup>
-import { useTodoStore } from '@/stores/todo';
-import { ref } from 'vue';
-import { RouterLink, useRoute, useRouter } from 'vue-router';
-
-const router = useRouter();
-const curRoute = useRoute();
-const id = curRoute.params.id;
-
-const todoStore = useTodoStore();
-const { fetchTodo, deleteTodo } = todoStore;
-
-const todo = ref({});
-
-async function initTodoData() {
-  try {
-    todo.value = await fetchTodo(id);
-    console.log('TODO DETAIL 데이터 : ', todo.value);
-  } catch (e) {
-    alert('TODO DETAIL 통신 ERR 발생');
-    console.error(e);
-  }
-}
-
-async function onDeleteTodo(id) {
-  try {
-    const deleteRes = await deleteTodo(id);
-    console.log('삭제 통신 결과 : ', deleteRes);
-
-    router.push({ name: 'todo' });
-  } catch (e) {
-    alert('TODO 삭제 ERR 발생');
-    console.log(e);
-  }
-}
-
-initTodoData();
-</script>
 
 <style lang="scss" scoped></style>

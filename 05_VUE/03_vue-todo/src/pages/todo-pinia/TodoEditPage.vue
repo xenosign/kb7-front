@@ -10,15 +10,13 @@ const id = curRoute.params.id;
 const todoStore = useTodoStore();
 const { fetchTodo, editTodo } = todoStore;
 
-const todo = ref({});
 const editedTodo = ref({});
 
-async function initTodoData() {
+async function initTodo() {
   try {
-    todo.value = await fetchTodo(id);
-    editedTodo.value = todo.value;
+    editedTodo.value = await fetchTodo(id);
 
-    console.log('TODO EDIT 데이터 : ', todo.value);
+    console.log('TODO EDIT 데이터 : ', editedTodo.value);
   } catch (e) {
     alert('TODO EDIT 통신 ERR 발생');
 
@@ -38,7 +36,7 @@ async function onEditTodo() {
   }
 }
 
-initTodoData();
+initTodo();
 </script>
 
 <style lang="scss" scoped></style>
@@ -50,10 +48,8 @@ initTodoData();
       <h2>todo : <input type="text" v-model.trim="editedTodo.todo" /></h2>
       <h2>desc : <input type="text" v-model.trim="editedTodo.desc" /></h2>
       <h2>done : <input type="checkbox" v-model.trim="editedTodo.done" /></h2>
-      <button v-on:click="onEditTodo(todo.id)">수정</button>
-      <button
-        @click="router.push({ name: 'todo/detail', params: { id: todo.id } })"
-      >
+      <button v-on:click="onEditTodo(id)">수정</button>
+      <button @click="router.push({ name: 'todo/detail', params: { id: id } })">
         취소
       </button>
     </div>

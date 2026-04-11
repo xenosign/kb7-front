@@ -6,15 +6,30 @@ const BASE_URL = 'https://json-server-render2-production.up.railway.app';
 
 export const useTodoStore = defineStore('todo', () => {
   const todoArr = ref([]);
+  const isFetching = ref(false);
+  const isError = ref(false);
 
   const fetchTodoList = async () => {
     try {
+      isFetching.value = true;
       const fetchTodoListUrl = BASE_URL + '/todos';
       const fetchTodoListRes = await axios.get(fetchTodoListUrl);
 
       todoArr.value = fetchTodoListRes.data;
+      isFetching.value = false;
       return fetchTodoListRes.data;
-      return fetchTodoListRes.data;
+    } catch (error) {
+      isError.value = true;
+      console.error(error);
+    }
+  };
+
+  const addTodo = async (newTodo) => {
+    try {
+      const addTodoUrl = BASE_URL + '/todos';
+      const addTodoRes = await axios.post(addTodoUrl, newTodo);
+
+      return addTodoRes.data;
     } catch (error) {
       console.error(error);
     }
@@ -26,17 +41,6 @@ export const useTodoStore = defineStore('todo', () => {
       const fetchTodoRes = await axios.get(fetchTodoUrl);
 
       return fetchTodoRes.data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const addTodo = async (newTodo) => {
-    try {
-      const addTodoUrl = BASE_URL + '/todos';
-      const addTodoRes = await axios.post(addTodoUrl, newTodo);
-
-      return addTodoRes.data;
     } catch (error) {
       console.error(error);
     }
@@ -63,5 +67,14 @@ export const useTodoStore = defineStore('todo', () => {
       console.error(error);
     }
   };
-  return { todoArr, fetchTodoList, fetchTodo, addTodo, editTodo, deleteTodo };
+  return {
+    todoArr,
+    isFetching,
+    isError,
+    fetchTodoList,
+    fetchTodo,
+    addTodo,
+    editTodo,
+    deleteTodo,
+  };
 });
